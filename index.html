@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio, resume, and engineering projects of Irene Huang.">
-  <meta name="theme-color" content="#081426">
-  <title>Irene Huang | Engineering Portfolio</title>
-
-<style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Irene Huang's engineering portfolio, projects, and resume."/><meta name="theme-color" content="#081426"/><title>About | Irene Huang</title><style>
 /* =====================================================
    Irene Huang | Engineering Portfolio
    Palette: cool mist, slate blue, sage green, lavender
@@ -127,6 +118,10 @@ p { color: var(--muted); }
 .hero .intro { max-width: 620px; margin: 0; line-height: 1.9; }
 .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .hero-art { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.profile-photo { width: min(340px, 100%); aspect-ratio: 4 / 5; object-fit: cover; object-position: center; border-radius: 24px; border: 1px solid #C8D5D8; box-shadow: 0 14px 34px rgba(40, 59, 73, .12); background: #E8EEF2; }
+.hero { grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr); }
+.hero h1 { margin-top: 0; }
+.hero .intro { font-size: 1.05rem; }
 .orbit {
   position: relative;
   width: min(320px, 100%);
@@ -282,419 +277,39 @@ footer p { color: #5C6F79; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
-</style>
-</head>
 
-<body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="#home">Irene Huang.</a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#awards">Awards</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="container hero" id="home" style="border-top:0">
-      <div>
-        <div class="eyebrow">Engineering Portfolio</div>
-        <h1>Hello, I'm<br><span class="gradient-text">YOUR NAME</span></h1>
-        <h2>Computer Science Graduate Student</h2>
-        <p class="intro">
-          I am a computer science graduate student at National Dong Hwa
-          University, interested in artificial intelligence, embedded systems,
-          and firmware engineering. I enjoy learning how software and hardware
-          work together to solve real-world problems.
-        </p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="#projects">Explore My Projects ↘</a>
-          <a class="btn btn-secondary" href="YourName_Resume.pdf" download>
-            ↓ Download Resume
-          </a>
-        </div>
-      </div>
+/* Compact grouped Resume layout */
+.resume-subsection { margin: 0 0 28px; }
+.resume-subsection > h3 { margin: 0 0 16px; color: var(--heading, #263746); font-size: 1.2rem; }
+.resume-subsection .section-heading { display: none; }
+.project-award { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-weight: 600; color: var(--heading, #263746); }
+.additional-recognition p { margin-bottom: 0; }
 
-      <div class="hero-art" aria-label="Personal initials illustration">
-        <div class="orbit">
-          <div class="monogram">YN</div>
-          <div class="orbit-label">AI · Embedded Systems · Firmware</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">01 / Introduction</div>
-          <h2>About Me</h2>
-          <p>A little about my background and interests.</p>
-        </div>
-
-        <div class="about-grid">
-          <article class="panel">
-            <h3>My Background</h3>
-            <p>
-              I am pursuing a graduate degree in Computer Science and
-              Information Engineering at National Dong Hwa University in
-              Taiwan. My academic work has involved deep learning, time-series
-              prediction, and IoT-based applications.
-            </p>
-            <p>
-              Through academic projects, I have gained experience in developing
-              computer vision applications, working with data, and exploring
-              machine learning models. I am interested in applying these skills
-              to practical engineering problems, particularly in embedded
-              systems and firmware-related development.
-            </p>
-            <p>
-              I value continuous learning, careful problem-solving, and
-              collaboration. I hope to keep strengthening my programming and
-              system-level engineering skills through hands-on experience.
-            </p>
-          </article>
-
-          <aside class="panel">
-            <h3>Areas of Interest</h3>
-            <div class="highlight-list">
-              <div class="highlight">
-                <strong>Firmware & Embedded Systems</strong>
-                <span>Low-level programming and hardware-software integration</span>
-              </div>
-              <div class="highlight">
-                <strong>Artificial Intelligence</strong>
-                <span>Deep learning and practical AI applications</span>
-              </div>
-              <div class="highlight">
-                <strong>IoT Applications</strong>
-                <span>Connected devices and intelligent monitoring systems</span>
-              </div>
-              <div class="highlight">
-                <strong>Engineering Problem-Solving</strong>
-                <span>Building, testing, and improving practical solutions</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">02 / Academic Background</div>
-          <h2>Education</h2>
-        </div>
-
-        <div class="education-grid">
-          <article class="panel">
-            <div class="education-item">
-              <h3>National Dong Hwa University</h3>
-              <p>Master's Program in Computer Science and Information Engineering</p>
-              <p>Research interests: Deep Learning, Time-Series Forecasting</p>
-              <p>2025.2 – 2026.6</p>
-            </div>
-            <div class="education-item">
-              <h3>National Dong Hwa University</h3>
-              <p>Bachelor's Degree in Computer Science and Information Engineering</p>
-              <p>2020.9 – 2025.2</p>
-            </div>
-          </article>
-
-          <article class="panel">
-            <h3>Academic Focus</h3>
-            <p>
-              My graduate research explores deep learning architectures for
-              financial time-series trend prediction and quantitative
-              backtesting, using Taiwan-listed ETF data as a case study.
-            </p>
-            <div class="tag-list">
-              <span class="tag">LSTM</span>
-              <span class="tag">Transformer</span>
-              <span class="tag">iTransformer</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Time-Series Data</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">03 / Technical Toolkit</div>
-          <h2>Skills</h2>
-          <p>Technologies and concepts I have worked with or studied.</p>
-        </div>
-
-        <div class="skill-grid">
-          <article class="card skill-card">
-            <h3>Programming</h3>
-            <p>C / C++, Python, HTML, CSS</p>
-            <div class="tag-list">
-              <span class="tag">C / C++</span>
-              <span class="tag">Python</span>
-              <span class="tag">HTML / CSS</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <h3>AI & Machine Learning</h3>
-            <p>Deep learning models and computer vision applications.</p>
-            <div class="tag-list">
-              <span class="tag">PyTorch</span>
-              <span class="tag">YOLOv5</span>
-              <span class="tag">LSTM</span>
-              <span class="tag">Transformer</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <h3>Embedded & IoT</h3>
-            <p>Microcontroller-based projects and connected-device workflows.</p>
-            <div class="tag-list">
-              <span class="tag">ESP32-CAM</span>
-              <span class="tag">IoT</span>
-              <span class="tag">Firebase</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <h3>Development Tools</h3>
-            <p>Tools used for programming, experimentation, and project work.</p>
-            <div class="tag-list">
-              <span class="tag">Jupyter Notebook</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">Linux [EDIT IF NEEDED]</span>
-            </div>
-          </article>
-        </div>
-
-        <p class="note">
-          Please adjust this section to reflect your actual experience and
-          proficiency. Remove any technology you cannot confidently discuss
-          in an interview.
-        </p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">04 / Selected Work</div>
-          <h2>Projects</h2>
-          <p>Academic research and engineering projects.</p>
-        </div>
-
-        <div class="project-grid">
-          <article class="card project-card">
-            <div class="project-number">PROJECT 01 · COMPUTER VISION / IoT</div>
-            <h3>Baby Safety Detection System</h3>
-            <p>
-              Developed a baby safety detection system integrating deep
-              learning and IoT. The project used ESP32-CAM and YOLOv5m for
-              detection, Firebase Storage for image storage, and FCM for
-              notifications.
-            </p>
-            <div class="tag-list">
-              <span class="tag">YOLOv5m</span>
-              <span class="tag">ESP32-CAM</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">IoT</span>
-            </div>
-            <p><strong>Reported result:</strong> 98.76% detection accuracy in the project evaluation.</p>
-            <a class="project-link" href="#contact">Project details available on request ↗</a>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-number">PROJECT 02 · DEEP LEARNING / FINANCE</div>
-            <h3>ETF Trend Prediction & Backtesting</h3>
-            <p>
-              Graduate research comparing LSTM, Transformer, and iTransformer
-              architectures to predict the future trend of Taiwan 50 ETF (0050)
-              using historical market and technical-indicator features.
-            </p>
-            <div class="tag-list">
-              <span class="tag">PyTorch</span>
-              <span class="tag">LSTM</span>
-              <span class="tag">Transformer</span>
-              <span class="tag">iTransformer</span>
-            </div>
-            <p>
-              The study also explores feature selection and quantitative
-              backtesting against baseline investment strategies.
-            </p>
-            <a class="project-link" href="#contact">Research details available on request ↗</a>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-number">PROJECT 03 · WEB / AI</div>
-            <h3>University AI Advisor Chatbot</h3>
-            <p>
-              Developing a LINE-based assistant concept to help students
-              explore faculty research interests and find department
-              information through structured faculty data and FAQs.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Python</span>
-              <span class="tag">Web Scraping</span>
-              <span class="tag">LINE Bot</span>
-              <span class="tag">LLM Integration</span>
-            </div>
-            <p>
-              Focus: collecting reliable information and designing a
-              maintainable knowledge base for student support.
-            </p>
-            <a class="project-link" href="#contact">Project details available on request ↗</a>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-number">PROJECT 04 · ADD YOUR PROJECT</div>
-            <h3>[PROJECT TITLE]</h3>
-            <p>
-              [Describe the problem, your role, the technologies used, and the
-              outcome. Replace this card with another project if appropriate.]
-            </p>
-            <div class="tag-list">
-              <span class="tag">[TECHNOLOGY 1]</span>
-              <span class="tag">[TECHNOLOGY 2]</span>
-            </div>
-            <a class="project-link" href="#contact">[Add project or repository link] ↗</a>
-          </article>
-        </div>
-
-        <p class="note">
-          Before publishing, replace project-detail links with your actual
-          GitHub repositories, reports, demonstrations, or project documents.
-          Do not publish private code or confidential project information.
-        </p>
-      </div>
-    </section>
-
-    <section id="awards">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">05 / Recognition</div>
-          <h2>Awards & Achievements</h2>
-        </div>
-
-        <div class="award-list">
-          <article class="award">
-            <div class="award-icon" aria-hidden="true">★</div>
-            <div>
-              <h3>Best Paper Award — TANET 2023</h3>
-              <p>
-                Recognized for the project “Baby Safety Detection System
-                Integrating Deep Learning and IoT.”
-              </p>
-            </div>
-            <div class="award-year">2023</div>
-          </article>
-
-          <article class="award">
-            <div class="award-icon" aria-hidden="true">◆</div>
-            <div>
-              <h3>Hualien Youth–Industry Link Program</h3>
-              <p>
-                Selected for participation. Add the official program name,
-                role, and details of the achievement here.
-              </p>
-            </div>
-            <div class="award-year">[YEAR]</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="resume">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">06 / Download</div>
-          <h2>Resume</h2>
-        </div>
-
-        <div class="panel resume-panel">
-          <div>
-            <h3>Interested in working together?</h3>
-            <p>
-              Download my resume for a concise overview of my education,
-              technical skills, and project experience.
-            </p>
-          </div>
-          <a class="btn btn-primary" href="YourName_Resume.pdf" download>
-            ↓ Download PDF Resume
-          </a>
-        </div>
-        <p class="note">
-          Upload your actual PDF resume to the repository root using the exact
-          filename <strong>YourName_Resume.pdf</strong>, or update both links
-          in this page to match your file's name.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">07 / Get in Touch</div>
-          <h2>Contact</h2>
-          <p>Feel free to reach out regarding engineering opportunities or projects.</p>
-        </div>
-
-        <div class="contact-grid">
-          <a class="card contact-card" href="mailto:irenehuang200190@example.com">
-            <span>✉ Email</span>
-            <strong>irenehuang200190@example.com</strong>
-            <p>Professional inquiries</p>
-          </a>
-
-          <a class="card contact-card"
-             href="https://github.com/Irenehgy"
-             target="_blank" rel="noopener noreferrer">
-            <span>⌘ GitHub</span>
-            <strong>View my repositories ↗</strong>
-            <p>Code and project work</p>
-          </a>
-
-          <a class="card contact-card"
-             href="https://www.linkedin.com/in/irene-huang-bb6b8434a/"
-             target="_blank" rel="noopener noreferrer">
-            <span>in LinkedIn</span>
-            <strong>Connect with me ↗</strong>
-            <p>Professional profile</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © <span id="year"></span> YOUR NAME · Built with HTML & CSS · Hosted on GitHub Pages
-    </div>
-  </footer>
-
-  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const backToTop = document.getElementById("back-to-top");
-
-    window.addEventListener("scroll", () => {
-      backToTop.classList.toggle("visible", window.scrollY > 400);
-    });
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
-</body>
-</html>
+/* Multi-page portfolio additions */
+.nav-links a.active { color: var(--heading); font-weight: 700; }
+.page-main { min-height: calc(100vh - 160px); }
+.experience-item { margin-bottom: 14px; padding: 22px; }
+.experience-heading { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.experience-heading h3 { margin:0; color:var(--heading); }
+.experience-heading span { color:var(--muted); font-size:.92rem; }
+.experience-item p { margin: 7px 0 0; }
+@media (max-width: 600px) { .experience-item { padding:18px; } }
+</style></head><body><header class="nav"><div class="container nav-inner">
+<a class="logo" href="index.html">Irene Huang.</a>
+<nav aria-label="Main navigation" class="nav-links">
+<a href="index.html" data-page="about">About</a>
+<a href="projects.html" data-page="projects">Projects</a>
+<a href="resume.html" data-page="resume">Resume</a>
+<a href="contact.html" data-page="contact">Contact</a>
+</nav></div></header><main class="page-main"><section class="container hero" id="home" style="border-top:0">
+<div>
+<h1><span class="gradient-text">Irene Huang</span></h1>
+<p class="intro">
+I am a Computer Science graduate student at National Dong Hwa University, Taiwan. My interests include artificial intelligence, embedded systems, and firmware engineering. Through academic and practical projects, I enjoy exploring how software and hardware can work together to solve real-world problems.
+</p>
+</div>
+<div class="hero-art">
+<img class="profile-photo" src="profile.jpg" alt="Portrait of Irene Huang" />
+</div>
+</section></main><footer><div class="container">© <span id="year"></span> Irene Huang · Built with HTML &amp; CSS · Hosted on GitHub Pages</div></footer><script>document.getElementById("year").textContent = new Date().getFullYear(); const current = location.pathname.split('/').pop() || 'index.html'; const map = {'index.html':'about','projects.html':'projects','resume.html':'resume','contact.html':'contact'}; document.querySelectorAll('.nav-links a').forEach(a=>{if(a.dataset.page===map[current]) a.classList.add('active');});</script></body></html>
