@@ -7,787 +7,728 @@
   <meta name="theme-color" content="#081426">
   <title>Irene Huang | Engineering Portfolio</title>
 
-  <style>
-     :root {
-  --bg: #F7F4EE;
-  --panel: #FFFFFF;
-  --panel-light: #EAEDE5;
-  --text: #464C43;
-  --muted: #85877F;
-  --blue: #879783;
-  --cyan: #A8B5A0;
-  --border: rgba(108, 119, 101, .20);
-  --max-width: 1120px;
-}
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(ellipse at 10% 0%, #16335a 0, transparent 40%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.7;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 4px;
-    }
-
-    .container { width: min(var(--max-width), 90%); margin: auto; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(8, 20, 38, .92);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: var(--cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-size: .88rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover { color: var(--cyan); }
-
-    .hero {
-      min-height: 500px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      align-items: center;
-      gap: 55px;
-      padding-top: 70px;
-      padding-bottom: 70px;
-    }
-
-    .eyebrow {
-      color: var(--cyan);
-      font-size: .82rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    h1 {
-      margin: 12px 0;
-      font-size: clamp(2.7rem, 6vw, 4.8rem);
-      line-height: 1.08;
-      letter-spacing: -2px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(100deg, var(--blue), var(--cyan));
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-
-    .hero h2 {
-      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
-      font-weight: 500;
-      color: #d4e5fb;
-    }
-
-    .intro {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 18px;
-      border: 1px solid var(--blue);
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: .9rem;
-      transition: transform .2s, background .2s;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--blue); color: #071426; }
-    .btn-secondary { color: var(--text); }
-    .btn-secondary:hover { background: var(--panel-light); }
-
-    .hero-art {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 300px;
-    }
-
-    .orbit {
-      width: min(270px, 70vw);
-      aspect-ratio: 1;
-      border: 1px solid rgba(85, 167, 255, .55);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 75px rgba(40, 130, 255, .13),
-                  inset 0 0 50px rgba(40, 130, 255, .08);
-      position: relative;
-    }
-
-    .orbit::before, .orbit::after {
-      content: "";
-      position: absolute;
-      border: 1px dashed rgba(107, 229, 237, .28);
-      border-radius: 50%;
-    }
-
-    .orbit::before { inset: 18px -20px; transform: rotate(30deg); }
-    .orbit::after { inset: -20px 18px; transform: rotate(-30deg); }
-
-    .monogram {
-      font-size: 4rem;
-      font-weight: 800;
-      color: var(--cyan);
-      text-shadow: 0 0 35px rgba(107, 229, 237, .35);
-    }
-
-    .orbit-label {
-      position: absolute;
-      bottom: -14px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 7px 15px;
-      color: var(--muted);
-      font-size: .8rem;
-    }
-
-    section { padding: 76px 0; border-top: 1px solid var(--border); }
-
-    .section-heading { margin-bottom: 30px; }
-    .section-heading h2 { margin: 0; font-size: 2rem; }
-    .section-heading p { margin: 8px 0 0; color: var(--muted); }
-
-    .about-grid, .education-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 24px;
-    }
-
-    .panel, .card {
-      background: linear-gradient(145deg, var(--panel), rgba(16, 31, 53, .65));
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 25px;
-    }
-
-    .panel p { color: var(--muted); }
-
-    .highlight-list { display: grid; gap: 15px; }
-    .highlight {
-      border-left: 2px solid var(--blue);
-      padding-left: 15px;
-    }
-    .highlight strong { display: block; }
-    .highlight span { color: var(--muted); font-size: .92rem; }
-
-    .education-item + .education-item {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .education-item h3 { margin: 0 0 5px; font-size: 1.08rem; }
-    .education-item p { margin: 4px 0; color: var(--muted); }
-
-    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
-
-    .tag {
-      border: 1px solid rgba(85, 167, 255, .28);
-      background: rgba(85, 167, 255, .08);
-      color: #c8e3ff;
-      border-radius: 6px;
-      padding: 5px 10px;
-      font-size: .83rem;
-    }
-
-    .skill-grid, .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .skill-card h3, .card h3 { margin: 0 0 10px; }
-    .skill-card p { margin: 0; color: var(--muted); font-size: .94rem; }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(85, 167, 255, .65);
-    }
-
-    .project-number {
-      color: var(--cyan);
-      font-size: .8rem;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-    }
-
-    .project-card p { color: var(--muted); margin: 0; }
-    .project-card .tag-list { margin: 16px 0 20px; }
-    .project-link { color: var(--cyan); font-weight: 700; margin-top: auto; }
-    .project-link:hover { text-decoration: underline; }
-
-    .note {
-      color: var(--muted);
-      font-size: .88rem;
-      margin-top: 20px;
-    }
-
-    .award-list { display: grid; gap: 15px; }
-
-    .award {
-      display: grid;
-      grid-template-columns: 60px 1fr auto;
-      align-items: start;
-      gap: 18px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--panel);
-    }
-
-    .award-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: rgba(85, 167, 255, .12);
-      color: var(--cyan);
-      font-size: 1.5rem;
-    }
-
-    .award h3 { margin: 0; font-size: 1rem; }
-    .award p { margin: 5px 0 0; color: var(--muted); }
-    .award-year { color: var(--cyan); font-size: .9rem; }
-
-    .resume-panel {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    .resume-panel p { color: var(--muted); margin-bottom: 0; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .contact-card {
-      display: block;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-card span { color: var(--cyan); display: block; margin-bottom: 8px; }
-    .contact-card p { color: var(--muted); margin: 5px 0 0; font-size: .9rem; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 25px 0;
-      color: var(--muted);
-      font-size: .85rem;
-      text-align: center;
-    }
-
-    #back-to-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      color: var(--text);
-      background: var(--panel-light);
-      cursor: pointer;
-      display: none;
-    }
-
-    #back-to-top.visible { display: block; }
-
-    @media (max-width: 760px) {
-      .nav-inner { align-items: flex-start; padding: 16px 0; flex-direction: column; }
-      .nav-links { gap: 12px 16px; }
-      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 55px; }
-      .hero-art { min-height: 240px; }
-      .orbit { width: 200px; }
-      .about-grid, .education-grid, .skill-grid, .project-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      section { padding: 55px 0; }
-      .award { grid-template-columns: 48px 1fr; gap: 12px; }
-      .award-icon { width: 44px; height: 44px; }
-      .award-year { grid-column: 2; }
-      h1 { letter-spacing: -1px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-    
+<style>
 /* ==========================================
-   MORANDI INS STYLE
-   Cream Beige + Sage Green
-   Paste this block immediately before </style>
+   1. 色彩設定：冷調霧白 × 霧藍 × 鼠尾草綠
    ========================================== */
-
 :root {
-  --bg: #F5F2EA;
-  --panel: #FFFEFA;
-  --panel-light: #E8EAE1;
-  --text: #3F473E;
-  --muted: #73796F;
-  --blue: #788B75;
-  --cyan: #A1B09A;
-  --border: rgba(91, 107, 85, 0.20);
+  --bg: #F3F5F4;
+  --panel: #FFFFFF;
+  --panel-light: #E9EEEC;
+
+  --text: #283743;
+  --muted: #657681;
+
+  --blue: #647C91;
+  --cyan: #7EA6AC;
+  --green: #819B8A;
+  --lavender: #A69CC0;
+
+  --border: #D8E0E2;
   --max-width: 1120px;
 
-  --sage-dark: #5D715A;
-  --sage-light: #E5E9DF;
-  --cream: #F5F2EA;
-  --white: #FFFEFA;
+  --shadow: 0 6px 22px rgba(43, 62, 73, 0.07);
 }
 
-/* Page background and typography */
+/* ==========================================
+   2. 全站基本設定
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background: var(--bg);
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background:
-    radial-gradient(
-      ellipse at 5% 0%,
-      rgba(206, 214, 197, 0.35),
-      transparent 42%
-    ),
-    var(--bg);
+  margin: 0;
+  background: var(--bg) !important;
   color: var(--text);
   font-family:
+    -apple-system,
+    BlinkMacSystemFont,
     "Segoe UI",
-    "Noto Sans",
-    "Helvetica Neue",
-    Arial,
+    "Noto Sans TC",
     sans-serif;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
+  line-height: 1.7;
 }
 
-/* Links */
+/* 移除原本的背景漸層 */
+body,
+main,
+header,
+section,
+footer {
+  background-image: none;
+}
+
 a {
-  color: inherit;
+  color: var(--blue);
   text-decoration: none;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--sage-dark);
-  outline-offset: 4px;
-}
-
-/* Navigation */
-.nav {
-  background: rgba(255, 254, 250, 0.94);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(63, 71, 62, 0.035);
-  backdrop-filter: blur(14px);
-}
-
-.logo {
-  color: var(--sage-dark);
-  letter-spacing: 2px;
-}
-
-.nav-links {
-  color: #656D61;
-}
-
-.nav-links a {
   transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: var(--sage-dark);
+a:hover {
+  color: #3F5B70;
 }
 
-/* Hero section */
-.hero {
-  background: transparent;
+img {
+  max-width: 100%;
 }
 
-.eyebrow {
-  color: var(--sage-dark);
-  letter-spacing: 2.2px;
-  font-size: 0.78rem;
+::selection {
+  background: #D7E3E2;
+  color: #283743;
+}
+
+/* ==========================================
+   3. 導覽列
+   ========================================== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(243, 245, 244, 0.97) !important;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(43, 62, 73, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.nav-inner {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  color: #3F5968 !important;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #536671;
+  font-size: 0.92rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #416C63;
+}
+
+/* ==========================================
+   4. 標題：全部使用深色
+   ========================================== */
+h1,
+h2,
+h3,
+h4,
+.section-title {
+  color: #283743;
+  font-weight: 750;
 }
 
 h1 {
-  color: var(--text);
-  letter-spacing: -1.5px;
+  letter-spacing: -0.035em;
 }
 
-.gradient-text {
-  background: linear-gradient(
-    100deg,
-    #667C62,
-    #9BAA91
-  );
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
+h2,
+.section-title {
+  letter-spacing: -0.015em;
 }
 
-.hero h2 {
-  color: #687465;
+h3,
+h4 {
+  color: #354D59;
 }
 
-.intro {
+p {
   color: var(--muted);
 }
 
-/* Profile illustration */
-.hero-art {
-  background: transparent;
+.gradient-text {
+  background: none !important;
+  color: #344B5B !important;
+  -webkit-text-fill-color: #344B5B !important;
+  text-shadow: none !important;
 }
 
+.eyebrow {
+  color: #527B70;
+  font-size: 0.84rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   5. 首頁 Hero
+   ========================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.hero h1 {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  color: #283743;
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  line-height: 1.12;
+}
+
+.hero h2,
+.hero h3 {
+  color: #41665F;
+}
+
+.hero p {
+  max-width: 600px;
+  line-height: 1.85;
+}
+
+.hero-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 圓形裝飾 */
 .orbit {
-  border: 1px solid rgba(105, 128, 98, 0.45);
-  box-shadow:
-    0 15px 45px rgba(91, 107, 85, 0.08),
-    inset 0 0 45px rgba(161, 176, 154, 0.12);
+  position: relative;
+  width: min(320px, 80vw);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #B8C9CD;
+  border-radius: 50%;
+  background: #E7EEED !important;
+  box-shadow: none !important;
 }
 
 .orbit::before,
 .orbit::after {
-  border-color: rgba(105, 128, 98, 0.22);
+  content: "";
+  position: absolute;
+  border: 1px solid #C7D5D7;
+  border-radius: 50%;
+  box-shadow: none !important;
+}
+
+.orbit::before {
+  inset: 18px;
+}
+
+.orbit::after {
+  inset: 38px;
 }
 
 .monogram {
-  color: var(--sage-dark);
-  text-shadow: none;
+  position: relative;
+  z-index: 1;
+  color: #496C72;
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  font-weight: 800;
+  text-shadow: none !important;
 }
 
 .orbit-label {
-  color: #626D5E;
-  background: var(--white);
+  position: absolute;
+  z-index: 2;
+  right: -8px;
+  bottom: 30px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: #405761;
+  box-shadow: var(--shadow);
+  font-size: 0.82rem;
 }
 
-/* Buttons */
-.btn {
-  border-radius: 7px;
-  font-weight: 600;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.btn-primary {
-  background: var(--sage-dark);
-  border-color: var(--sage-dark);
-  color: #FFFFFF;
-}
-
-.btn-primary:hover {
-  background: #4D614A;
-  border-color: #4D614A;
-  color: #FFFFFF;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--sage-dark);
-  border-color: #A6B29F;
-}
-
-.btn-secondary:hover {
-  background: var(--sage-light);
-  border-color: var(--sage-dark);
-  color: #43543F;
-}
-
-/* Section layout */
-section {
-  border-top-color: rgba(91, 107, 85, 0.14);
-}
-
-.section-heading h2 {
-  color: var(--text);
-  letter-spacing: -0.5px;
-}
-
-.section-heading p {
-  color: var(--muted);
-}
-
-/* Cards and panels */
+/* ==========================================
+   6. 通用卡片
+   ========================================== */
 .panel,
-.card {
-  background: var(--white);
-  border: 1px solid rgba(91, 107, 85, 0.16);
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(63, 71, 62, 0.035);
+.card,
+.skill-card,
+.project-card,
+.award,
+.resume-panel,
+.contact-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
 }
 
-.panel p,
-.skill-card p,
-.project-card p,
-.education-item p,
-.award p,
-.resume-panel p {
-  color: var(--muted);
+.panel {
+  padding: 24px;
+}
+
+.card {
+  padding: 22px;
 }
 
 .panel h3,
 .card h3,
-.education-item h3,
+.skill-card h3,
+.project-card h3,
 .award h3 {
-  color: var(--text);
+  color: #304653;
 }
 
-/* About section */
-.highlight {
-  border-left-color: #8D9E84;
+.panel p,
+.card p,
+.skill-card p,
+.project-card p,
+.award p {
+  color: #657681;
 }
 
-.highlight strong {
-  color: var(--text);
+/* ==========================================
+   7. About 與 Education
+   ========================================== */
+.about-grid,
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.highlight span {
-  color: var(--muted);
+.about-text {
+  color: #536873;
+  line-height: 1.9;
 }
 
-/* Education */
-.education-item + .education-item {
-  border-top-color: var(--border);
+.education-item {
+  padding: 20px;
+  border-left: 3px solid #A69CC0;
+  border-radius: 0 12px 12px 0;
+  background: #F0F1F6 !important;
 }
 
-/* Skills */
-.tag-list {
-  gap: 8px;
+.education-item h3 {
+  color: #344B5B;
 }
 
-.tag {
-  background: #EEF0E8;
-  border: 1px solid #D9DED2;
-  color: #52634D;
-  border-radius: 5px;
+.education-item p {
+  color: #657681;
+}
+
+.education-year {
+  color: #557D72;
+  font-weight: 750;
+}
+
+/* ==========================================
+   8. Skills 技能卡片
+   ========================================== */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skill-card {
+  padding: 18px;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.skill-card:nth-child(4n + 1) {
+  background: #E7EEF2 !important;
+  border-color: #D5E1E6;
+}
+
+.skill-card:nth-child(4n + 2) {
+  background: #E8EFE9 !important;
+  border-color: #D6E2D8;
+}
+
+.skill-card:nth-child(4n + 3) {
+  background: #EEECF5 !important;
+  border-color: #E0DCEC;
+}
+
+.skill-card:nth-child(4n) {
+  background: #F2ECE6 !important;
+  border-color: #E7DDD3;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(43, 62, 73, 0.09);
+}
+
+.skill-card h3 {
+  color: #304653;
+}
+
+.skill-card p,
+.skill-card li {
+  color: #5A6C77;
+}
+
+/* 技能標籤 */
+.tag,
+.skill-tag,
+.tags span {
+  display: inline-block;
   padding: 5px 10px;
-  font-size: 0.81rem;
+  border: 1px solid #D4E0D8;
+  border-radius: 7px;
+  background: #E5EDE7;
+  color: #405D50;
+  font-size: 0.83rem;
 }
 
-/* Project cards */
+/* ==========================================
+   9. Projects 專案卡片
+   ========================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .project-card {
-  box-shadow: 0 5px 22px rgba(63, 71, 62, 0.04);
-  transition:
-    transform 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-3px);
-  border-color: #A6B49E;
-  box-shadow: 0 12px 28px rgba(63, 71, 62, 0.08);
+  border-color: #A8C2C2;
+  box-shadow: 0 10px 25px rgba(43, 62, 73, 0.1);
+}
+
+.project-card h3 {
+  color: #2F4858;
+}
+
+.project-card p {
+  line-height: 1.8;
 }
 
 .project-number {
-  color: var(--sage-dark);
+  color: #557E72;
+  font-weight: 750;
+  letter-spacing: 0.07em;
 }
 
 .project-link {
-  color: var(--sage-dark);
+  display: inline-block;
+  margin-top: 8px;
+  color: #456C83;
+  font-weight: 750;
 }
 
 .project-link:hover {
-  color: #3F563C;
-  text-decoration: underline;
+  color: #31566D;
 }
 
-.note {
-  color: var(--muted);
-}
-
-/* Awards */
+/* ==========================================
+   10. Awards 獎項與時間軸
+   ========================================== */
 .award {
-  background: var(--white);
-  border-color: var(--border);
-  box-shadow: 0 4px 16px rgba(63, 71, 62, 0.025);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+}
+
+.award h3 {
+  color: #344B5B;
+}
+
+.award p {
+  color: #657681;
 }
 
 .award-icon {
-  background: #E8EDE3;
-  color: var(--sage-dark);
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #EAE6F3 !important;
+  color: #756B98 !important;
 }
 
 .award-year {
-  color: var(--sage-dark);
+  color: #5B7D73;
+  font-weight: 750;
 }
 
-/* Resume section */
+/* 時間軸 */
+.timeline {
+  border-left: 2px solid #C5BBD9;
+}
+
+.timeline-item::before {
+  background: #8F83B1;
+  border-color: #EAE6F3;
+}
+
+/* ==========================================
+   11. Resume 履歷區塊
+   ========================================== */
 .resume-panel {
-  background: var(--white);
+  padding: 26px;
 }
 
-/* Contact cards */
+.resume-panel h3 {
+  color: #304653;
+}
+
+.resume-panel p {
+  color: #657681;
+}
+
+/* ==========================================
+   12. Buttons 按鈕
+   ========================================== */
+.btn,
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease,
+              border-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #668A80 !important;
+  border-color: #668A80 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover {
+  background: #4F7067 !important;
+  border-color: #4F7067 !important;
+}
+
+.btn-secondary {
+  background: #FFFFFF !important;
+  border-color: #91AAA9 !important;
+  color: #3F5C62 !important;
+}
+
+.btn-secondary:hover {
+  background: #E6EFED !important;
+}
+
+/* ==========================================
+   13. Contact 聯絡資訊
+   ========================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .contact-card {
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  padding: 18px;
+  transition: border-color 0.2s ease,
+              transform 0.2s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-2px);
-  border-color: #A6B49E;
-  box-shadow: 0 8px 22px rgba(63, 71, 62, 0.06);
+  border-color: #A8C2C2;
+}
+
+.contact-card h3,
+.contact-card strong {
+  color: #304653;
 }
 
 .contact-card span {
-  color: var(--sage-dark);
+  color: #527D80;
+  overflow-wrap: anywhere;
 }
 
-.contact-card strong {
-  color: var(--text);
-}
-
-.contact-card p {
-  color: var(--muted);
-}
-
-/* Footer */
+/* ==========================================
+   14. Footer 頁尾
+   ========================================== */
 footer {
-  background: #E9E9E0;
-  border-top: 1px solid var(--border);
-  color: #626A5E;
+  margin-top: 60px;
+  padding: 26px 20px;
+  background: #E8EDEF !important;
+  border-top: 1px solid #D4DEE1;
+  color: #5C6F79;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
-/* Back-to-top button */
+footer p {
+  color: #5C6F79;
+}
+
+/* ==========================================
+   15. 回到頂部按鈕
+   ========================================== */
 #back-to-top {
-  background: var(--white);
-  color: var(--sage-dark);
-  border: 1px solid #CBD3C4;
-  box-shadow: 0 4px 14px rgba(63, 71, 62, 0.09);
-  transition: background 0.2s ease;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #CCD9DC;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: #476A7B;
+  box-shadow: 0 4px 14px rgba(43, 62, 73, 0.1);
+  cursor: pointer;
 }
 
-#back-to-top:hover {
-  background: var(--sage-light);
+/* ==========================================
+   16. 移除葉子與植物裝飾
+   不影響專案照片或個人照片
+   ========================================== */
+.leaf,
+.leaves,
+.leaf-decoration,
+.leaf-decor,
+.botanical,
+.botanical-decoration,
+.plant-decoration,
+.decorative-leaf {
+  display: none !important;
 }
 
-/* Text selection */
-::selection {
-  background: #DCE5D5;
-  color: #344331;
+/* 移除常見的植物裝飾背景 */
+.hero,
+.hero-art,
+.panel,
+section {
+  background-image: none;
 }
 
-/* Mobile adjustments */
-@media (max-width: 760px) {
-  .nav {
-    background: rgba(255, 254, 250, 0.97);
+/* ==========================================
+   17. 平板與手機版
+   ========================================== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav-links {
-    gap: 10px 15px;
-    font-size: 0.84rem;
+    gap: 12px;
   }
+}
 
+@media (max-width: 600px) {
   .hero {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 36px;
+    padding-bottom: 30px;
   }
 
-  .hero-art {
-    min-height: 220px;
+  .hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
   }
 
-  .orbit {
-    width: 190px;
+  .about-grid,
+  .education-grid,
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
-  .section-heading h2 {
-    font-size: 1.8rem;
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 14px;
   }
 
   .panel,
-  .card {
-    padding: 21px;
+  .card,
+  .skill-card,
+  .project-card,
+  .resume-panel {
+    padding: 18px;
   }
 
-  .award {
-    background: var(--white);
+  .orbit {
+    width: min(270px, 75vw);
   }
 
-  .btn {
-    min-height: 44px;
+  #back-to-top {
+    right: 16px;
+    bottom: 16px;
   }
 }
 
-/* Respect reduced-motion preferences */
+/* ==========================================
+   18. 減少動態效果
+   ========================================== */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
-
-  </style>
+</style>
 </head>
 
 <body>
