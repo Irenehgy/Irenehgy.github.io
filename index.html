@@ -370,6 +370,423 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
     }
+    
+/* ==========================================
+   MORANDI INS STYLE
+   Cream Beige + Sage Green
+   Paste this block immediately before </style>
+   ========================================== */
+
+:root {
+  --bg: #F5F2EA;
+  --panel: #FFFEFA;
+  --panel-light: #E8EAE1;
+  --text: #3F473E;
+  --muted: #73796F;
+  --blue: #788B75;
+  --cyan: #A1B09A;
+  --border: rgba(91, 107, 85, 0.20);
+  --max-width: 1120px;
+
+  --sage-dark: #5D715A;
+  --sage-light: #E5E9DF;
+  --cream: #F5F2EA;
+  --white: #FFFEFA;
+}
+
+/* Page background and typography */
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 5% 0%,
+      rgba(206, 214, 197, 0.35),
+      transparent 42%
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family:
+    "Segoe UI",
+    "Noto Sans",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--sage-dark);
+  outline-offset: 4px;
+}
+
+/* Navigation */
+.nav {
+  background: rgba(255, 254, 250, 0.94);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(63, 71, 62, 0.035);
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  color: var(--sage-dark);
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  color: #656D61;
+}
+
+.nav-links a {
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--sage-dark);
+}
+
+/* Hero section */
+.hero {
+  background: transparent;
+}
+
+.eyebrow {
+  color: var(--sage-dark);
+  letter-spacing: 2.2px;
+  font-size: 0.78rem;
+}
+
+h1 {
+  color: var(--text);
+  letter-spacing: -1.5px;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    100deg,
+    #667C62,
+    #9BAA91
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero h2 {
+  color: #687465;
+}
+
+.intro {
+  color: var(--muted);
+}
+
+/* Profile illustration */
+.hero-art {
+  background: transparent;
+}
+
+.orbit {
+  border: 1px solid rgba(105, 128, 98, 0.45);
+  box-shadow:
+    0 15px 45px rgba(91, 107, 85, 0.08),
+    inset 0 0 45px rgba(161, 176, 154, 0.12);
+}
+
+.orbit::before,
+.orbit::after {
+  border-color: rgba(105, 128, 98, 0.22);
+}
+
+.monogram {
+  color: var(--sage-dark);
+  text-shadow: none;
+}
+
+.orbit-label {
+  color: #626D5E;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 7px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: #4D614A;
+  border-color: #4D614A;
+  color: #FFFFFF;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sage-dark);
+  border-color: #A6B29F;
+}
+
+.btn-secondary:hover {
+  background: var(--sage-light);
+  border-color: var(--sage-dark);
+  color: #43543F;
+}
+
+/* Section layout */
+section {
+  border-top-color: rgba(91, 107, 85, 0.14);
+}
+
+.section-heading h2 {
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+/* Cards and panels */
+.panel,
+.card {
+  background: var(--white);
+  border: 1px solid rgba(91, 107, 85, 0.16);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(63, 71, 62, 0.035);
+}
+
+.panel p,
+.skill-card p,
+.project-card p,
+.education-item p,
+.award p,
+.resume-panel p {
+  color: var(--muted);
+}
+
+.panel h3,
+.card h3,
+.education-item h3,
+.award h3 {
+  color: var(--text);
+}
+
+/* About section */
+.highlight {
+  border-left-color: #8D9E84;
+}
+
+.highlight strong {
+  color: var(--text);
+}
+
+.highlight span {
+  color: var(--muted);
+}
+
+/* Education */
+.education-item + .education-item {
+  border-top-color: var(--border);
+}
+
+/* Skills */
+.tag-list {
+  gap: 8px;
+}
+
+.tag {
+  background: #EEF0E8;
+  border: 1px solid #D9DED2;
+  color: #52634D;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.81rem;
+}
+
+/* Project cards */
+.project-card {
+  box-shadow: 0 5px 22px rgba(63, 71, 62, 0.04);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: #A6B49E;
+  box-shadow: 0 12px 28px rgba(63, 71, 62, 0.08);
+}
+
+.project-number {
+  color: var(--sage-dark);
+}
+
+.project-link {
+  color: var(--sage-dark);
+}
+
+.project-link:hover {
+  color: #3F563C;
+  text-decoration: underline;
+}
+
+.note {
+  color: var(--muted);
+}
+
+/* Awards */
+.award {
+  background: var(--white);
+  border-color: var(--border);
+  box-shadow: 0 4px 16px rgba(63, 71, 62, 0.025);
+}
+
+.award-icon {
+  background: #E8EDE3;
+  color: var(--sage-dark);
+}
+
+.award-year {
+  color: var(--sage-dark);
+}
+
+/* Resume section */
+.resume-panel {
+  background: var(--white);
+}
+
+/* Contact cards */
+.contact-card {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  border-color: #A6B49E;
+  box-shadow: 0 8px 22px rgba(63, 71, 62, 0.06);
+}
+
+.contact-card span {
+  color: var(--sage-dark);
+}
+
+.contact-card strong {
+  color: var(--text);
+}
+
+.contact-card p {
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  background: #E9E9E0;
+  border-top: 1px solid var(--border);
+  color: #626A5E;
+}
+
+/* Back-to-top button */
+#back-to-top {
+  background: var(--white);
+  color: var(--sage-dark);
+  border: 1px solid #CBD3C4;
+  box-shadow: 0 4px 14px rgba(63, 71, 62, 0.09);
+  transition: background 0.2s ease;
+}
+
+#back-to-top:hover {
+  background: var(--sage-light);
+}
+
+/* Text selection */
+::selection {
+  background: #DCE5D5;
+  color: #344331;
+}
+
+/* Mobile adjustments */
+@media (max-width: 760px) {
+  .nav {
+    background: rgba(255, 254, 250, 0.97);
+  }
+
+  .nav-links {
+    gap: 10px 15px;
+    font-size: 0.84rem;
+  }
+
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .hero-art {
+    min-height: 220px;
+  }
+
+  .orbit {
+    width: 190px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .panel,
+  .card {
+    padding: 21px;
+  }
+
+  .award {
+    background: var(--white);
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
   </style>
 </head>
 
