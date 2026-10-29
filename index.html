@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio, resume, and engineering projects of YOUR NAME.">
+  <meta name="theme-color" content="#081426">
+  <title>YOUR NAME | Engineering Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #081426;
+      --panel: #101f35;
+      --panel-light: #142640;
+      --text: #edf4ff;
+      --muted: #a9bad1;
+      --blue: #55a7ff;
+      --cyan: #6be5ed;
+      --border: rgba(160, 190, 230, .17);
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 10% 0%, #16335a 0, transparent 40%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container { width: min(var(--max-width), 90%); margin: auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 20, 38, .92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .hero {
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: .82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--blue), var(--cyan));
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 500;
+      color: #d4e5fb;
+    }
+
+    .intro {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--blue); color: #071426; }
+    .btn-secondary { color: var(--text); }
+    .btn-secondary:hover { background: var(--panel-light); }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+    }
+
+    .orbit {
+      width: min(270px, 70vw);
+      aspect-ratio: 1;
+      border: 1px solid rgba(85, 167, 255, .55);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 75px rgba(40, 130, 255, .13),
+                  inset 0 0 50px rgba(40, 130, 255, .08);
+      position: relative;
+    }
+
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px dashed rgba(107, 229, 237, .28);
+      border-radius: 50%;
+    }
+
+    .orbit::before { inset: 18px -20px; transform: rotate(30deg); }
+    .orbit::after { inset: -20px 18px; transform: rotate(-30deg); }
+
+    .monogram {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--cyan);
+      text-shadow: 0 0 35px rgba(107, 229, 237, .35);
+    }
+
+    .orbit-label {
+      position: absolute;
+      bottom: -14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 7px 15px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    section { padding: 76px 0; border-top: 1px solid var(--border); }
+
+    .section-heading { margin-bottom: 30px; }
+    .section-heading h2 { margin: 0; font-size: 2rem; }
+    .section-heading p { margin: 8px 0 0; color: var(--muted); }
+
+    .about-grid, .education-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+    }
+
+    .panel, .card {
+      background: linear-gradient(145deg, var(--panel), rgba(16, 31, 53, .65));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .panel p { color: var(--muted); }
+
+    .highlight-list { display: grid; gap: 15px; }
+    .highlight {
+      border-left: 2px solid var(--blue);
+      padding-left: 15px;
+    }
+    .highlight strong { display: block; }
+    .highlight span { color: var(--muted); font-size: .92rem; }
+
+    .education-item + .education-item {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .education-item h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .education-item p { margin: 4px 0; color: var(--muted); }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+
+    .tag {
+      border: 1px solid rgba(85, 167, 255, .28);
+      background: rgba(85, 167, 255, .08);
+      color: #c8e3ff;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: .83rem;
+    }
+
+    .skill-grid, .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card h3, .card h3 { margin: 0 0 10px; }
+    .skill-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(85, 167, 255, .65);
+    }
+
+    .project-number {
+      color: var(--cyan);
+      font-size: .8rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .project-card p { color: var(--muted); margin: 0; }
+    .project-card .tag-list { margin: 16px 0 20px; }
+    .project-link { color: var(--cyan); font-weight: 700; margin-top: auto; }
+    .project-link:hover { text-decoration: underline; }
+
+    .note {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-top: 20px;
+    }
+
+    .award-list { display: grid; gap: 15px; }
+
+    .award {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      align-items: start;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+
+    .award-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(85, 167, 255, .12);
+      color: var(--cyan);
+      font-size: 1.5rem;
+    }
+
+    .award h3 { margin: 0; font-size: 1rem; }
+    .award p { margin: 5px 0 0; color: var(--muted); }
+    .award-year { color: var(--cyan); font-size: .9rem; }
+
+    .resume-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .resume-panel p { color: var(--muted); margin-bottom: 0; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .contact-card {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card span { color: var(--cyan); display: block; margin-bottom: 8px; }
+    .contact-card p { color: var(--muted); margin: 5px 0 0; font-size: .9rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    #back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text);
+      background: var(--panel-light);
+      cursor: pointer;
+      display: none;
+    }
+
+    #back-to-top.visible { display: block; }
+
+    @media (max-width: 760px) {
+      .nav-inner { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+      .nav-links { gap: 12px 16px; }
+      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 55px; }
+      .hero-art { min-height: 240px; }
+      .orbit { width: 200px; }
+      .about-grid, .education-grid, .skill-grid, .project-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      section { padding: 55px 0; }
+      .award { grid-template-columns: 48px 1fr; gap: 12px; }
+      .award-icon { width: 44px; height: 44px; }
+      .award-year { grid-column: 2; }
+      h1 { letter-spacing: -1px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">YOUR INITIALS.</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home" style="border-top:0">
+      <div>
+        <div class="eyebrow">Engineering Portfolio</div>
+        <h1>Hello, I'm<br><span class="gradient-text">YOUR NAME</span></h1>
+        <h2>Computer Science Graduate Student</h2>
+        <p class="intro">
+          I am a computer science graduate student at National Dong Hwa
+          University, interested in artificial intelligence, embedded systems,
+          and firmware engineering. I enjoy learning how software and hardware
+          work together to solve real-world problems.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">Explore My Projects ↘</a>
+          <a class="btn btn-secondary" href="YourName_Resume.pdf" download>
+            ↓ Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Personal initials illustration">
+        <div class="orbit">
+          <div class="monogram">YN</div>
+          <div class="orbit-label">AI · Embedded Systems · Firmware</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">01 / Introduction</div>
+          <h2>About Me</h2>
+          <p>A little about my background and interests.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel">
+            <h3>My Background</h3>
+            <p>
+              I am pursuing a graduate degree in Computer Science and
+              Information Engineering at National Dong Hwa University in
+              Taiwan. My academic work has involved deep learning, time-series
+              prediction, and IoT-based applications.
+            </p>
+            <p>
+              Through academic projects, I have gained experience in developing
+              computer vision applications, working with data, and exploring
+              machine learning models. I am interested in applying these skills
+              to practical engineering problems, particularly in embedded
+              systems and firmware-related development.
+            </p>
+            <p>
+              I value continuous learning, careful problem-solving, and
+              collaboration. I hope to keep strengthening my programming and
+              system-level engineering skills through hands-on experience.
+            </p>
+          </article>
+
+          <aside class="panel">
+            <h3>Areas of Interest</h3>
+            <div class="highlight-list">
+              <div class="highlight">
+                <strong>Firmware & Embedded Systems</strong>
+                <span>Low-level programming and hardware-software integration</span>
+              </div>
+              <div class="highlight">
+                <strong>Artificial Intelligence</strong>
+                <span>Deep learning and practical AI applications</span>
+              </div>
+              <div class="highlight">
+                <strong>IoT Applications</strong>
+                <span>Connected devices and intelligent monitoring systems</span>
+              </div>
+              <div class="highlight">
+                <strong>Engineering Problem-Solving</strong>
+                <span>Building, testing, and improving practical solutions</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">02 / Academic Background</div>
+          <h2>Education</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="panel">
+            <div class="education-item">
+              <h3>National Dong Hwa University</h3>
+              <p>Master's Program in Computer Science and Information Engineering</p>
+              <p>Research interests: Deep Learning, Time-Series Forecasting</p>
+              <p>[START YEAR] – Present</p>
+            </div>
+            <div class="education-item">
+              <h3>[UNDERGRADUATE UNIVERSITY]</h3>
+              <p>Bachelor's Degree in [DEPARTMENT / MAJOR]</p>
+              <p>[START YEAR] – [GRADUATION YEAR]</p>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Academic Focus</h3>
+            <p>
+              My graduate research explores deep learning architectures for
+              financial time-series trend prediction and quantitative
+              backtesting, using Taiwan-listed ETF data as a case study.
+            </p>
+            <div class="tag-list">
+              <span class="tag">LSTM</span>
+              <span class="tag">Transformer</span>
+              <span class="tag">iTransformer</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Time-Series Data</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">03 / Technical Toolkit</div>
+          <h2>Skills</h2>
+          <p>Technologies and concepts I have worked with or studied.</p>
+        </div>
+
+        <div class="skill-grid">
+          <article class="card skill-card">
+            <h3>Programming</h3>
+            <p>C / C++, Python, HTML, CSS</p>
+            <div class="tag-list">
+              <span class="tag">C / C++</span>
+              <span class="tag">Python</span>
+              <span class="tag">HTML / CSS</span>
+            </div>
+          </article>
+
+          <article class="card skill-card">
+            <h3>AI & Machine Learning</h3>
+            <p>Deep learning models and computer vision applications.</p>
+            <div class="tag-list">
+              <span class="tag">PyTorch</span>
+              <span class="tag">YOLOv5</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Transformer</span>
+            </div>
+          </article>
+
+          <article class="card skill-card">
+            <h3>Embedded & IoT</h3>
+            <p>Microcontroller-based projects and connected-device workflows.</p>
+            <div class="tag-list">
+              <span class="tag">ESP32-CAM</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </article>
+
+          <article class="card skill-card">
+            <h3>Development Tools</h3>
+            <p>Tools used for programming, experimentation, and project work.</p>
+            <div class="tag-list">
+              <span class="tag">Jupyter Notebook</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Linux [EDIT IF NEEDED]</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="note">
+          Please adjust this section to reflect your actual experience and
+          proficiency. Remove any technology you cannot confidently discuss
+          in an interview.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">04 / Selected Work</div>
+          <h2>Projects</h2>
+          <p>Academic research and engineering projects.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card project-card">
+            <div class="project-number">PROJECT 01 · COMPUTER VISION / IoT</div>
+            <h3>Baby Safety Detection System</h3>
+            <p>
+              Developed a baby safety detection system integrating deep
+              learning and IoT. The project used ESP32-CAM and YOLOv5m for
+              detection, Firebase Storage for image storage, and FCM for
+              notifications.
+            </p>
+            <div class="tag-list">
+              <span class="tag">YOLOv5m</span>
+              <span class="tag">ESP32-CAM</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">IoT</span>
+            </div>
+            <p><strong>Reported result:</strong> 98.76% detection accuracy in the project evaluation.</p>
+            <a class="project-link" href="#contact">Project details available on request ↗</a>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 02 · DEEP LEARNING / FINANCE</div>
+            <h3>ETF Trend Prediction & Backtesting</h3>
+            <p>
+              Graduate research comparing LSTM, Transformer, and iTransformer
+              architectures to predict the future trend of Taiwan 50 ETF (0050)
+              using historical market and technical-indicator features.
+            </p>
+            <div class="tag-list">
+              <span class="tag">PyTorch</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Transformer</span>
+              <span class="tag">iTransformer</span>
+            </div>
+            <p>
+              The study also explores feature selection and quantitative
+              backtesting against baseline investment strategies.
+            </p>
+            <a class="project-link" href="#contact">Research details available on request ↗</a>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 03 · WEB / AI</div>
+            <h3>University AI Advisor Chatbot</h3>
+            <p>
+              Developing a LINE-based assistant concept to help students
+              explore faculty research interests and find department
+              information through structured faculty data and FAQs.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Web Scraping</span>
+              <span class="tag">LINE Bot</span>
+              <span class="tag">LLM Integration</span>
+            </div>
+            <p>
+              Focus: collecting reliable information and designing a
+              maintainable knowledge base for student support.
+            </p>
+            <a class="project-link" href="#contact">Project details available on request ↗</a>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 04 · ADD YOUR PROJECT</div>
+            <h3>[PROJECT TITLE]</h3>
+            <p>
+              [Describe the problem, your role, the technologies used, and the
+              outcome. Replace this card with another project if appropriate.]
+            </p>
+            <div class="tag-list">
+              <span class="tag">[TECHNOLOGY 1]</span>
+              <span class="tag">[TECHNOLOGY 2]</span>
+            </div>
+            <a class="project-link" href="#contact">[Add project or repository link] ↗</a>
+          </article>
+        </div>
+
+        <p class="note">
+          Before publishing, replace project-detail links with your actual
+          GitHub repositories, reports, demonstrations, or project documents.
+          Do not publish private code or confidential project information.
+        </p>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">05 / Recognition</div>
+          <h2>Awards & Achievements</h2>
+        </div>
+
+        <div class="award-list">
+          <article class="award">
+            <div class="award-icon" aria-hidden="true">★</div>
+            <div>
+              <h3>Best Paper Award — TANET 2023</h3>
+              <p>
+                Recognized for the project “Baby Safety Detection System
+                Integrating Deep Learning and IoT.”
+              </p>
+            </div>
+            <div class="award-year">2023</div>
+          </article>
+
+          <article class="award">
+            <div class="award-icon" aria-hidden="true">◆</div>
+            <div>
+              <h3>Hualien Youth–Industry Link Program</h3>
+              <p>
+                Selected for participation. Add the official program name,
+                role, and details of the achievement here.
+              </p>
+            </div>
+            <div class="award-year">[YEAR]</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">06 / Download</div>
+          <h2>Resume</h2>
+        </div>
+
+        <div class="panel resume-panel">
+          <div>
+            <h3>Interested in working together?</h3>
+            <p>
+              Download my resume for a concise overview of my education,
+              technical skills, and project experience.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="YourName_Resume.pdf" download>
+            ↓ Download PDF Resume
+          </a>
+        </div>
+        <p class="note">
+          Upload your actual PDF resume to the repository root using the exact
+          filename <strong>YourName_Resume.pdf</strong>, or update both links
+          in this page to match your file's name.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">07 / Get in Touch</div>
+          <h2>Contact</h2>
+          <p>Feel free to reach out regarding engineering opportunities or projects.</p>
+        </div>
+
+        <div class="contact-grid">
+          <a class="card contact-card" href="mailto:YOUR_EMAIL@example.com">
+            <span>✉ Email</span>
+            <strong>YOUR_EMAIL@example.com</strong>
+            <p>Professional inquiries</p>
+          </a>
+
+          <a class="card contact-card"
+             href="https://github.com/YOUR-GITHUB-USERNAME"
+             target="_blank" rel="noopener noreferrer">
+            <span>⌘ GitHub</span>
+            <strong>View my repositories ↗</strong>
+            <p>Code and project work</p>
+          </a>
+
+          <a class="card contact-card"
+             href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID/"
+             target="_blank" rel="noopener noreferrer">
+            <span>in LinkedIn</span>
+            <strong>Connect with me ↗</strong>
+            <p>Professional profile</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> YOUR NAME · Built with HTML & CSS · Hosted on GitHub Pages
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const backToTop = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 400);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
